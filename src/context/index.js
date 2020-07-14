@@ -1,0 +1,159 @@
+import React, { createContext, useContext } from 'react';
+
+
+export const AuthUser = createContext({
+    filterData: {
+        tableData:[
+            {
+                name:"manikandan",
+                screenName:"sun",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"abishek",
+                screenName:"moon",
+                followersCount:600,
+                followingCount:100,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"bavithran",
+                screenName:"earth",
+                followersCount:700,
+                followingCount:200,
+                location:"viluppuram",
+                verified:true
+            },
+            {
+                name:"cinnathambi",
+                screenName:"horse",
+                followersCount:500,
+                followingCount:200,
+                location:"madurai",
+                verified:true
+            },
+            {
+                name:"dinesh",
+                screenName:"white",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"elphin",
+                screenName:"dokiyo",
+                followersCount:500,
+                followingCount:200,
+                location:"kadalur",
+                verified:false
+            },
+            {
+                name:"gink",
+                screenName:"black",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:true
+            },
+            {
+                name:"hyper",
+                screenName:"dope",
+                followersCount:1000,
+                followingCount:200,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"ice-bar",
+                screenName:"bar",
+                followersCount:1500,
+                followingCount:300,
+                location:"kudalur",
+                verified:true
+            },
+            {
+                name:"jeans",
+                screenName:"bar",
+                followersCount:600,
+                followingCount:200,
+                location:"kudalur",
+                verified:true
+            },
+            {
+                name:"kannapan",
+                screenName:"rock",
+                followersCount:600,
+                followingCount:200,
+                location:"kadalur",
+                verified:true
+            },
+            {
+                name:"libin",
+                screenName:"like",
+                followersCount:500,
+                followingCount:200,
+                location:"viluppuram",
+                verified:false
+            },
+            {
+                name:"maker-king",
+                screenName:"mark",
+                followersCount:500,
+                followingCount:200,
+                location:"madurai",
+                verified:false
+            },
+            {
+                name:"nakesh",
+                screenName:"zoon",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"pavithra",
+                screenName:"zoon",
+                followersCount:500,
+                followingCount:200,
+                location:"erode",
+                verified:true
+            },
+            {
+                name:"muthupandi",
+                screenName:"sun",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:false
+            },
+            {
+                name:"mukesh",
+                screenName:"sun",
+                followersCount:500,
+                followingCount:200,
+                location:"chennai",
+                verified:true
+            },
+        ]
+    },
+    setAuthFilterData: () => null
+});
+
+const AuthProvider = (props) => {
+    const { filterData, setAuthFilterData } = useContext(AuthUser);
+
+    return (
+        <AuthUser.Provider value={{ filterData, setAuthFilterData }}>
+            {props.children}
+        </AuthUser.Provider>
+    )
+
+
+}
+export default AuthProvider;
