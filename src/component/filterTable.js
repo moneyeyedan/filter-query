@@ -9,8 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { AuthUser } from '../context';
-import { TextField, FormControl, Select, MenuItem, FormHelperText, Button } from '@material-ui/core';
-
+import { TextField, FormControl, Select, MenuItem, FormHelperText, Button, Grid } from '@material-ui/core';
+import '../index.css';
 const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'screenName', label: 'Screen Name', minWidth: 100 },
@@ -331,49 +331,12 @@ class FilterTable extends React.Component {
     render() {
         return (
             <Paper >
-                <TableContainer >
-                    <Table stickyHeader aria-label="sticky table">
-                        <TableHead>
-                            <TableRow>
-                                {columns.map((column) => (
-                                    <TableCell
-                                        key={column.id}
-                                        align={column.align}
-                                        style={{ minWidth: column.minWidth }}
-                                    >
-                                        {column.label}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.tableData.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map((row, index) => {
-                                return (
-                                    <TableRow key={index}>
-                                        <TableCell>{row?.name}</TableCell>
-                                        <TableCell>{row?.screenName}</TableCell>
-                                        <TableCell>{row?.followersCount}</TableCell>
-                                        <TableCell>{row?.followingCount}</TableCell>
-                                        <TableCell>{row?.location}</TableCell>
-                                        <TableCell>{row?.verified ? 'true' : 'false'}</TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <TablePagination
-                    rowsPerPageOptions={[5, 10, 15]}
-                    component="div"
-                    count={this.state.tableData.length}
-                    rowsPerPage={this.state.rowsPerPage}
-                    page={this.state.page}
-                    onChangePage={this.handleChangePage}
-                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                />
-                <>
-                    <Paper >
-                        <TableContainer >
+                <Grid container item className="tablePadding">
+                    <Grid container item className="tableShadow filterTable">
+
+                    
+                    <Paper className="paperWidth">
+                        <TableContainer className="tableScroll">
                             <Table>
 
                                 <TableBody>
@@ -381,7 +344,7 @@ class FilterTable extends React.Component {
                                         return (
                                             <TableRow key={index}>
                                                 <TableCell>{index === 0 ? "where" :
-                                                    <FormControl >
+                                                    <FormControl className="filterConditionBoxWidth">
                                                         <Select
                                                             id="outlined-select-currency-native"
                                                             value={row?.operator}
@@ -411,7 +374,7 @@ class FilterTable extends React.Component {
                                                     </FormControl>
                                                 }</TableCell>
                                                 <TableCell>
-                                                    <FormControl >
+                                                    <FormControl className="filterSelectBoxWidth">
                                                         <Select
                                                             id="outlined-select-currency-native"
                                                             value={row?.tableColumn}
@@ -420,7 +383,7 @@ class FilterTable extends React.Component {
                                                                 native: true,
                                                             }}
                                                             inputProps={{
-                                                                style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px" }
+                                                                style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px",width:"120px" }
 
                                                             }}
                                                             margin="dense"
@@ -441,7 +404,7 @@ class FilterTable extends React.Component {
                                                     </FormControl>
                                                 </TableCell>
                                                 <TableCell>
-                                                    <FormControl >
+                                                    <FormControl className="filterConditionBoxWidth">
                                                         <Select
                                                             id="outlined-select-currency-native"
                                                             value={row?.condition}
@@ -561,7 +524,7 @@ class FilterTable extends React.Component {
                                                     }
                                                     {
                                                         row?.columnType === "boolean" ?
-                                                            <FormControl >
+                                                            <FormControl className="filterConditionBoxWidth">
                                                                 <Select
                                                                     id="outlined-select-currency-native"
                                                                     value={row?.value}
@@ -607,18 +570,64 @@ class FilterTable extends React.Component {
                                     })}
                                 </TableBody>
                             </Table>
-                            <div>
+                         
+                        </TableContainer>
+                  
+                    </Paper>
+                    <Grid item className="filterBtn">
                                 <Button variant="contained" color="primary" onClick={() => this.addQuery()}>
                                     Action
                                 </Button> &nbsp; &nbsp;
-                                <Button variant="contained" color="primary" onClick={() => this.submitQuery()}>
+                                <Button variant="contained" color="secondary" onClick={() => this.submitQuery()}>
                                     Submit
                                 </Button>
-                            </div>
-                        </TableContainer>
-
-                    </Paper>
-                </>
+                            </Grid>
+                    </Grid>
+                </Grid>
+                <Grid container item className="tablePadding">
+                    <Grid item container className="tableShadow">
+                    <TableContainer >
+                    <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
+                            <TableRow>
+                                {columns.map((column) => (
+                                    <TableCell
+                                        key={column.id}
+                                        align={column.align}
+                                        style={{ minWidth: column.minWidth }}
+                                    >
+                                        {column.label}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.state.tableData.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map((row, index) => {
+                                return (
+                                    <TableRow key={index}>
+                                        <TableCell>{row?.name}</TableCell>
+                                        <TableCell>{row?.screenName}</TableCell>
+                                        <TableCell>{row?.followersCount}</TableCell>
+                                        <TableCell>{row?.followingCount}</TableCell>
+                                        <TableCell>{row?.location}</TableCell>
+                                        <TableCell>{row?.verified ? 'true' : 'false'}</TableCell>
+                                    </TableRow>
+                                );
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination className="paginationWidthSet"
+                    rowsPerPageOptions={[5, 10, 15]}
+                    // component="div"
+                    count={this.state.tableData.length}
+                    rowsPerPage={this.state.rowsPerPage}
+                    page={this.state.page}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                />
+                    </Grid>
+                </Grid>
             </Paper>
         );
     }

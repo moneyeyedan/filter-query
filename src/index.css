@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.tablePadding {
+  padding:20px;
+}
+.paginationWidthSet {
+  width: 100%;
+}
+.tableShadow {
+  box-shadow: 2px 1px 11px 3px rgb(155, 155, 156);
+}
+.filterTable {
+  width: 70% !important;
+  margin: auto !important;
+}
+.filterBtn {
+  padding:20px;
+}
+.filterSelectBoxWidth * .MuiSelect-outlined {
+  width:120px;
+}
+.filterConditionBoxWidth * .MuiSelect-outlined {
+  width: 80px;
+}
+.paperWidth {
+  width: 100%;
+}
+.tableScroll {
+  overflow-y: scroll;
+  height: 25vh;
+}
