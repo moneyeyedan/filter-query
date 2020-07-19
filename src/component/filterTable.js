@@ -449,7 +449,7 @@ class FilterTable extends React.Component {
                                                                         native: true,
                                                                     }}
                                                                     inputProps={{
-                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px" }
+                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px",width:"120px" }
 
                                                                     }}
                                                                     margin="dense"
@@ -477,7 +477,7 @@ class FilterTable extends React.Component {
                                                                         native: true,
                                                                     }}
                                                                     inputProps={{
-                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px" }
+                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px",width:"120px" }
 
                                                                     }}
                                                                     margin="dense"
@@ -508,7 +508,7 @@ class FilterTable extends React.Component {
                                                                         native: true,
                                                                     }}
                                                                     inputProps={{
-                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px" }
+                                                                        style: { color: "rgba(0, 0, 0, 0.7)", fontSize: "14px",width:"120px" }
 
                                                                     }}
                                                                     margin="dense"
@@ -574,7 +574,7 @@ class FilterTable extends React.Component {
                         </TableContainer>
                   
                     </Paper>
-                    <Grid item className="filterBtn">
+                    <Grid item container className="filterBtn">
                                 <Button variant="contained" color="primary" onClick={() => this.addQuery()}>
                                     Action
                                 </Button> &nbsp; &nbsp;

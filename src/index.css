@@ -40,3 +40,9 @@ code {
   overflow-y: scroll;
   height: 25vh;
 }
+@media only screen and (max-width: 400px) {
+  .filterTable {
+    width: 100% !important;
+    margin: auto !important;
+  }
+}
